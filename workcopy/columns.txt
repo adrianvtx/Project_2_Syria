@@ -1,0 +1,16 @@
+['actor1', 'actor2', 'admin1', 'admin2', 'admin3', 'assoc_actor_1',
+       'assoc_actor_2', 'country', 'data_id', 'event_date', 'event_id_cnty',
+       'event_id_no_cnty', 'event_type', 'fatalities', 'geo_precision',
+       'inter1', 'inter2', 'interaction', 'iso', 'iso3', 'latitude',
+       'location', 'longitude', 'notes', 'region', 'source', 'source_scale',
+       'sub_event_type', 'time_precision', 'timestamp', 'year'],
+      dtype='object')
+
+
+
+REMOVED:
+['country', 'event_date', 'event_id_cnty', 'event_id_no_cnty', 'geo_precision', 'inter1', 'inter2', 'iso', 'iso3', 'region', 'source', 'source_scale', 'time_precision',  'timestamp', 'year']
+
+
+RETAINED:
+['actor1', 'actor2', 'admin1', 'admin2', 'admin3', 'assoc_actor_1', 'assoc_actor_2', 'data_id', 'event_type', 'fatalities',  'interaction', 'latitude', 'location', 'longitude', 'notes', 'sub_event_type']
