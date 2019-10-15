@@ -1,36 +1,32 @@
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
+import os
 
+import pandas as pd
+import numpy as np
+
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+
+from flask import Flask, jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 
+#################################################
+# Database Setup
+#################################################
 
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project_app/db/syriadb.db"
+db = SQLAlchemy(app)
 
-@app.route("/")
-def home():
+# reflect an existing database into a new model
+Base = automap_base()
+# reflect the tables
+Base.prepare(db.engine, reflect=True)
 
-
-    mars_dict = mongo.db.collection.find_one()
-
-
-    return render_template("index.html", mars=mars_dict)
-
-
-
-@app.route("/scrape")
-def scrape():
-
-
-    mars_data = scrape_mars.scrape()
-
-
-    mongo.db.collection.update({}, mars_data, upsert=True)
-
-
-    return redirect("/")
-
+# Save references to each table
+SyriaDB = Base.classes.syria_data
 
 if __name__ == "__main__":
-    app.run(debug=True)
