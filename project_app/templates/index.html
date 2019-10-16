@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>leaflet-map-csv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+  <!-- Load Omnivore plugin to convert CSV to GeoJSON format -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
+  <!-- Position the map with Cascading Style Sheet (CSS) -->
+  <style>
+  body { margin:0; padding:0; }
+  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  </style>
+
+</head>
+<body>
+
+  <!-- Insert HTML division tag to layout the map -->
+  <div id="map"></div>
+
+  <!-- Insert Javascript (.js) code to create the map -->
+  
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <!-- D3 JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="../static/js/logic.js"></script>
+  <body>
