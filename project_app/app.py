@@ -34,6 +34,10 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+<<<<<<< HEAD
+# stmt = db.session.query(Syria_Data).statement
+# df = pd.read_sql_query(stmt, db.session.b
+=======
 
 @app.route("/names")
 def names():
@@ -157,3 +161,4 @@ def syria():
 
 if __name__ == "__main__":
     app.run()
+>>>>>>> 899c8952e5efc597ba6386240224ea8ae3dc0b19
