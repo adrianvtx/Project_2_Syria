@@ -30,5 +30,4 @@
 # Syria_Data = Base.classes.Syria_Data
 
 # stmt = db.session.query(Syria_Data).statement
-# df = pd.read_sql_query(stmt, db.session.bind)
-
+# df = pd.read_sql_query(stmt, db.session.b
