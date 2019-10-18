@@ -1,4 +1,4 @@
-import os
+# import os
 
 import pandas as pd
 import numpy as np
@@ -15,9 +15,9 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-#################################################
-# Database Setup
-#################################################
+# #################################################
+# # Database Setup
+# #################################################
 
 engine = create_engine("sqlite:///C:\\Users\\wcarn\\Desktop\\GitHub\\leaflet-challenge\\Project_2_Syria\\project_app\\db\\data.sqlite")
 # reflect an existing database into a new model
