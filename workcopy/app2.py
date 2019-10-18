@@ -1,4 +1,4 @@
-# import os
+import os
 
 import pandas as pd
 import numpy as np
@@ -14,12 +14,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+#################################################
+# Database Setup
+#################################################
 
-# #################################################
-# # Database Setup
-# #################################################
-
-engine = create_engine("sqlite:///C:\\Users\\wcarn\\Desktop\\GitHub\\leaflet-challenge\\Project_2_Syria\\project_app\\db\\data.sqlite")
+engine = create_engine(
+    "sqlite:///C:\\Users\\wcarn\\Desktop\\GitHub\\leaflet-challenge\\Project_2_Syria\\project_app\\db\\data.sqlite"
+)
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
@@ -29,15 +30,12 @@ Base.prepare(engine, reflect=True)
 data1 = Base.classes.data1
 session = Session(engine)
 
+
 @app.route("/")
 def index():
     """Return the homepage."""
     return render_template("index.html")
 
-<<<<<<< HEAD
-# stmt = db.session.query(Syria_Data).statement
-# df = pd.read_sql_query(stmt, db.session.b
-=======
 
 @app.route("/names")
 def names():
@@ -124,12 +122,16 @@ def syria():
 
     results1 = session.query(*sel).\
     group_by(data1.event_date).\
-    order_by(data1.event_date).all() 
-    
-    df3 = pd.DataFrame(results1, columns=['data_id', 'event_date', 'event_type', 'sub_event_type', 'actor1',
-       'assoc_actor_1', 'actor2', 'assoc_actor_2', 'admin1', 'admin2',
-       'admin3', 'location', 'latitude', 'longitude', 'notes', 'source',
-       'fatalities'])
+    order_by(data1.event_date).all()
+
+    df3 = pd.DataFrame(results1,
+                       columns=[
+                           'data_id', 'event_date', 'event_type',
+                           'sub_event_type', 'actor1', 'assoc_actor_1',
+                           'actor2', 'assoc_actor_2', 'admin1', 'admin2',
+                           'admin3', 'location', 'latitude', 'longitude',
+                           'notes', 'source', 'fatalities'
+                       ])
 
     stmt = session.query(data1).statement
     df = pd.read_sql_query(stmt, session.bind)
@@ -161,4 +163,3 @@ def syria():
 
 if __name__ == "__main__":
     app.run()
->>>>>>> 899c8952e5efc597ba6386240224ea8ae3dc0b19
