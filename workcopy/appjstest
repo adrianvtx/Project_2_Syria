@@ -561,3 +561,128 @@ d3.json(graphdata2).then(function (data) {
 </body>
 
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Syria Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var activeTab = $(e.target).text(); // Get the name of active tab
+                var previousTab = $(e.relatedTarget).text(); // Get the name of previous tab
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1></h1>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Regional Fatalities by Event Type (2017-2019)
+                    </div>
+                    <div id="plot1">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bs-example">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="#Anadolu" class="nav-link active" data-toggle="tab">Anadolu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#Rojava" class="nav-link" data-toggle="tab">Rojava</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#OilD" class="nav-link" data-toggle="tab">Oil Distribution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#OilP" class="nav-link" data-toggle="tab">Oil Production (Est.)</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="Anadolu">
+                            <img class="nav-safe-zone"
+                                src="{{ url_for('static', filename='images/rsz_syria-safe-zone.jpg') }}">
+                            <h6>Source = “Turkey Offers Safe Zone for 3M Syrians.” Anadolu Ajansı,
+                                https://www.aa.com.tr/en/74th-un-general-assembly-2019/turkey-offers-safe-zone-for-3m-syrians/1594124.
+                            </h6>
+                        </div>
+                        <div class="tab-pane fade" id="Rojava">
+                            <img class="nav-rojava" src="{{ url_for('static', filename='images/rsz_rojava_map.jpg') }}">
+                            <h6>By Editor abcdef - Own work, CC BY-SA 3.0,
+                                https://commons.wikimedia.org/w/index.php?curid=49136324</h6>
+                        </div>
+                        <div class="tab-pane fade" id="OilD">
+                            <img class="nav-OilD" src="{{ url_for('static', filename='images/rsz_syria_oil.jpg') }}">
+                            <h6>Source = “The Energy Consulting Group.” Syria Oil and Gas Overview Map,
+                                http://energy-cg.com/MiddleEast/Syria/Syria Oil and Gas Overview.html.</h6>
+                        </div>
+                        <div class="tab-pane fade" id="OilP">
+                            <img class="nav-OilP"
+                                src="{{ url_for('static', filename='images/rsz_syria_oil_production.jpg') }}">
+                            <h6>Source = Context, Syria in. “Syria in Context.” Syria in Context,
+                                https://tande.substack.com/.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mx-md-n5">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="bs-example">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="#Folium" class="nav-link active" data-toggle="tab">Folium Map</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#Fatalities" class="nav-link" data-toggle="tab">Total Fatalities</a>
+                            </ul>
+                            <div class="tab-pane fade show active" id="Folium">
+                                <iframe src="{{ url_for('templates', filename='syria_CLUSTE.html') }}"></iframe>
+                            </div>
+                            <div class="tab-pane fade" id="Fatalities">
+                                <div id="plot2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://d3js.org/d3.v5.js"></script>
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
+
+<iframe src="URL"></iframe> 

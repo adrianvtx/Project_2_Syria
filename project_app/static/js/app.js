@@ -56,8 +56,10 @@ function buildChart1() {
                 autorange: true,
                 type: "linear"
             },
+            width: 1000,
+            height: 500,
         };
-        Plotly.newPlot("plot2", data1, layout)
+        Plotly.newPlot("Fatalities", data1, layout)
 
     });
 }

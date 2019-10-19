@@ -28,18 +28,19 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 jumbotron text-center">
-                <h1></h1>
-                <p></p>
+            <div class="col-md-12 jumbotron p-3 mb-2 bg-secondary text-white text-center">
+                <h1 class="display-4">The Syrian Crisis</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-body">
-                        Regional Fatalities by Event Type (2017-2019)
+                    <div class="panel-body p-3 mb-2 bg-white text-primary">
+                        Leaflet Map of Events
                     </div>
-                    <div id="plot1">
+                    <div id="Folium">
+                        <<iframe src="syria_CLUSTE.html" style="height:510px;width:530px;">
+                            </iframe>
                     </div>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                 <div class="bs-example">
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="nav-item">
-                            <a href="#Anadolu" class="nav-link active" data-toggle="tab">Anadolu</a>
+                            <a href="#Anadolu" class="nav-link active" data-toggle="tab">Turkish "safe zone"</a>
                         </li>
                         <li class="nav-item">
                             <a href="#Rojava" class="nav-link" data-toggle="tab">Rojava</a>
@@ -61,25 +62,41 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="Anadolu">
-                            <img class="nav-safe-zone" src="{{ url_for('static', filename='images/rsz_syria-safe-zone.jpg') }}">
-                            <h6>Source = “Turkey Offers Safe Zone for 3M Syrians.” Anadolu Ajansı,
+                            <img class="nav-safe-zone"
+                                src="{{ url_for('static', filename='images/rsz_syria-safe-zone.jpg') }}">
+                            <footer class="blockquote-footer">Anadolu Ajansı<cite title="Turkey Offers Safe Zone for 3M
+                                    Syrians">
+                                    https://www.aa.com.tr/en/74th-un-general-assembly-2019/turkey-offers-safe-zone-for-3m-syrians/1594124.</cite>
+                            </footer>
+                            <!-- <h6>Source = “Turkey Offers Safe Zone for 3M Syrians.” Anadolu Ajansı,
                                 https://www.aa.com.tr/en/74th-un-general-assembly-2019/turkey-offers-safe-zone-for-3m-syrians/1594124.
-                            </h6>
+                            </h6> -->
                         </div>
                         <div class="tab-pane fade" id="Rojava">
                             <img class="nav-rojava" src="{{ url_for('static', filename='images/rsz_rojava_map.jpg') }}">
-                            <h6>By Editor abcdef - Own work, CC BY-SA 3.0,
-                                https://commons.wikimedia.org/w/index.php?curid=49136324</h6>
+                            <footer class="blockquote-footer">By Editor abcdef <cite title="Own work, CC BY-SA 3.0,">
+                                    https://commons.wikimedia.org/w/index.php?curid=49136324</cite>
+                            </footer>
+                            <!-- <h6>By Editor abcdef - Own work, CC BY-SA 3.0,
+                                https://commons.wikimedia.org/w/index.php?curid=49136324</h6> -->
                         </div>
                         <div class="tab-pane fade" id="OilD">
                             <img class="nav-OilD" src="{{ url_for('static', filename='images/rsz_syria_oil.jpg') }}">
-                            <h6>Source = “The Energy Consulting Group.” Syria Oil and Gas Overview Map,
-                                http://energy-cg.com/MiddleEast/Syria/Syria Oil and Gas Overview.html.</h6>
+                            <footer class="blockquote-footer">The Energy Consulting Group <cite
+                                    title="Syria Oil and Gas Overview Map">
+                                    http://energy-cg.com/MiddleEast/Syria/Syria Oil and Gas Overview.html</cite>
+                            </footer>
+                            <!-- <h6>Source = “The Energy Consulting Group.” Syria Oil and Gas Overview Map,
+                                http://energy-cg.com/MiddleEast/Syria/Syria Oil and Gas Overview.html.</h6> -->
                         </div>
                         <div class="tab-pane fade" id="OilP">
-                            <img class="nav-OilP" src="{{ url_for('static', filename='images/rsz_syria_oil_production.jpg') }}">
-                            <h6>Source = Context, Syria in. “Syria in Context.” Syria in Context,
-                                https://tande.substack.com/.</h6>
+                            <img class="nav-OilP"
+                                src="{{ url_for('static', filename='images/rsz_syria_oil_production.jpg') }}">
+                            <footer class="blockquote-footer"><cite title="Syria in Context.">
+                                    https://tande.substack.com</cite>
+                            </footer>
+                            <!-- <h6>Source = Context, Syria in. “Syria in Context.” Syria in Context,
+                                https://tande.substack.com/.</h6> -->
                         </div>
                     </div>
                 </div>
@@ -91,17 +108,36 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        Total Fatalities in the Syrian Civil War (2017-2019)
-                    </div>
-                    <div id="plot2">
+                        <div class="bs-example">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="#plot1" class="nav-link active" data-toggle="tab">Regional Fatalities by
+                                        Event</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#Fatalities" class="nav-link" data-toggle="tab">Total Fatalities</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="plot1">
+                                    <footer class="blockquote-footer"><cite title="Syria in Context.">
+                                            “Armed Conflict Location & Event Data Project (ACLED); https://www.acleddata.com.” </cite>
+                                    </footer>
+                                </div>
+                                <div class="tab-pane fade" id="Fatalities">
+                                    <footer class="blockquote-footer"><cite title="ACLED">
+                                            “Armed Conflict Location & Event Data Project (ACLED); https://www.acleddata.com.” </cite>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
 </html>

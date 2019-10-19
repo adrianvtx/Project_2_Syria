@@ -35,6 +35,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/syria_CLUSTE.html')
+def main():
+    return render_template('syria_CLUSTE.html')
+
+
 @app.route("/names")
 def names():
     """Return a list of input names."""
@@ -182,77 +187,77 @@ def syria2():
     new_event_data = pd.DataFrame(event_data)
     new_event_data.sort_values(by="fatalities", ascending=False, inplace=True)
     new_event_data.reset_index(drop = True)
-    
+
     Idleb = new_event_data[new_event_data["admin1"] == "Idleb"]
     nIdleb = pd.DataFrame(Idleb)
     nIdleb.sort_values(by="fatalities", ascending=False, inplace=True)
     nIdleb.reset_index(drop = True)
-    
+
     Hama = new_event_data[new_event_data["admin1"] == "Hama"]
     nHama = pd.DataFrame(Hama)
     nHama.sort_values(by="fatalities", ascending=False, inplace=True)
     nHama.reset_index(drop = True)
-    
+
     DeirezZor = new_event_data[new_event_data["admin1"] == "Deir-ez-Zor"]
     nDeirezZor = pd.DataFrame(DeirezZor)
     nDeirezZor.sort_values(by="fatalities", ascending=False, inplace=True)
     nDeirezZor.reset_index(drop = True)
-    
+
     AlHasakeh = new_event_data[new_event_data["admin1"] == "Al-Hasakeh"]
     nAlHasakeh = pd.DataFrame(AlHasakeh)
     nAlHasakeh.sort_values(by="fatalities", ascending=False, inplace=True)
     nAlHasakeh.reset_index(drop = True)
-    
+
     ArRaqqa = new_event_data[new_event_data["admin1"] == "Ar-Raqqa"]
     nArRaqqa = pd.DataFrame(ArRaqqa)
     nArRaqqa.sort_values(by="fatalities", ascending=False, inplace=True)
     nArRaqqa.reset_index(drop = True)
-    
+
     Dara = new_event_data[new_event_data["admin1"] == "Dar'a"]
     nDara = pd.DataFrame(Dara)
     nDara.sort_values(by="fatalities", ascending=False, inplace=True)
     nDara.reset_index(drop = True)
-    
+
     AsSweida = new_event_data[new_event_data["admin1"] == "As-Sweida"]
     nAsSweida = pd.DataFrame(AsSweida)
     nAsSweida.sort_values(by="fatalities", ascending=False, inplace=True)
     nAsSweida.reset_index(drop = True)
-    
+
     Homs = new_event_data[new_event_data["admin1"] == "Homs"]
     nHoms = pd.DataFrame(Homs)
     nHoms.sort_values(by="fatalities", ascending=False, inplace=True)
     nHoms.reset_index(drop = True)
-    
+
     RuralDamascus = new_event_data[new_event_data["admin1"] == "Rural Damascus"]
     nRuralDamascus = pd.DataFrame(RuralDamascus)
     nRuralDamascus.sort_values(by="fatalities", ascending=False, inplace=True)
     nRuralDamascus.reset_index(drop = True)
-    
+
     Aleppo = new_event_data[new_event_data["admin1"] == "Aleppo"]
     nAleppo = pd.DataFrame(Aleppo)
     nAleppo.sort_values(by="fatalities", ascending=False, inplace=True)
     nAleppo.reset_index(drop = True)
-    
+
     Damascus = new_event_data[new_event_data["admin1"] == "Damascus"]
     nDamascus = pd.DataFrame(Damascus)
     nDamascus.sort_values(by="fatalities", ascending=False, inplace=True)
     nDamascus.reset_index(drop = True)
-    
+
     Quneitra = new_event_data[new_event_data["admin1"] == "Quneitra"]
     nQuneitra = pd.DataFrame(Quneitra)
     nQuneitra.sort_values(by="fatalities", ascending=False, inplace=True)
     nQuneitra.reset_index(drop = True)
-    
+
     Lattakia = new_event_data[new_event_data["admin1"] == "Lattakia"]
     nLattakia = pd.DataFrame(Lattakia)
     nLattakia.sort_values(by="fatalities", ascending=False, inplace=True)
     nLattakia.reset_index(drop = True)
-    
+
     Tartous = new_event_data[new_event_data["admin1"] == "Tartous"]
     nTartous = pd.DataFrame(Tartous)
     nTartous.sort_values(by="fatalities", ascending=False, inplace=True)
     nTartous.reset_index(drop = True)
-    
+
 
 
     # Format the data to send as json
