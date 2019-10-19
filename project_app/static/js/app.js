@@ -262,7 +262,6 @@ function buildChart2() {
         let layout2 = {
             height: 500,
             xaxis: {
-                tickangle: -45,
                 automargin: true
             },
             barmode: 'relative',

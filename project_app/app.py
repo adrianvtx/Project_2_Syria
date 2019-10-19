@@ -45,7 +45,7 @@ def names():
     """Return a list of input names."""
 
     # Use Pandas to perform the sql query
-    stmt = session.query(data1).statement
+    stmt = db.session.query(data1).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
     # Return a list of the column names (input names)
