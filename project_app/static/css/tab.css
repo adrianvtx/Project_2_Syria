@@ -1,0 +1,17 @@
+.tab-pane img {
+    max-width: 100px;
+    height: 100px;
+    padding: 10px;
+    float: left;
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    /* For IE8 and earlier */
+    margin-bottom: 20px;
+}
+
+.tab-pane img:hover {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    /* For IE8 and earlier */
+
+}
