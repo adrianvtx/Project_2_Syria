@@ -2,39 +2,89 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Project_Syria</title>
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" type="text/css" href="../static/css/leaflet.css" />
-  <!-- DVF CSS -->
-  <link rel= "stylesheet" href="../static/css/dvf.css" SameSite=None/> 
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
-
-  <!-- Leaflet JavaScript -->
-  <script src="../static/js/leaflet.js"></script>
-  <!-- Load Omnivore plugin to convert CSV to GeoJSON format -->
-  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js' SameSite=None></script>
-  <!-- DVF JavaScript -->
-  <script type="text/javascript" src="../static/js/leaflet-dvf.min.js"></script>
-
-
-  <head>
-  <body>
-
-    <!-- Insert HTML division tag to layout the map -->
-    <div id="map"></div>
-    <!-- <div class='custom-popup' id='map'></div> -->
-    <!-- Insert Javascript (.js) code to create the map -->
-
-    <!-- Leaflet JavaScript -->
-    <!-- Our JavaScript -->
-    <script type="text/javascript" src="../static/js/logic.js"></script>
-    <!-- <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script> -->
-    <!-- D3 JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js" SameSite=None ></script>
-
+    <meta charset="utf-8">
+    <title>Syria Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="static/css/style.css"> -->
+</head>
 
 <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1></h1>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Regional Fatalities by Event Type (2017-2019)
+                    </div>
+                    <div id="plot1">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-Anadolu Agency-tab" data-toggle="pill"
+                            href="project_app\static\images\syria-safe-zone.jpg" role="tab" aria-controls="pills-Anadolu
+                            Agency"
+                            aria-selected="true">Anadolu Agency</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-Rojava-tab" data-toggle="pill"
+                            href="project_app\static\images\Rojava Map.png" role="tab"
+                            aria-controls="pills-Rojava" aria-selected="false">Rojava</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-Oil-tab" data-toggle="pill"
+                            href="project_app\static\images\syria_oil.jfif" role="tab"
+                            aria-controls="pills-Oil" aria-selected="false">Oil Distribution</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-Oil Production-tab" data-toggle="pill"
+                            href="project_app\static\images\Syria_oil_production.jfif" role="tab"
+                            aria-controls="pills-Oil Production"
+                            aria-selected="false">Oil Production</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-Anadolu Agency" role="tabpanel"
+                        aria-labelledby="pills-Anadolu Agency-tab">...</div>
+                    <div class="tab-pane fade" id="pills-Rojava" role="tabpanel" aria-labelledby="pills-Rojava-tab">
+                        ...</div>
+                    <div class="tab-pane fade" id="pills-Oil" role="tabpanel" aria-labelledby="pills-Oil-tab">...
+                    </div>
+                    <div class="tab-pane fade" id="pills-Oil Production" role="tabpanel"
+                        aria-labelledby="pills-Oil Production-tab">...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mx-md-n5">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Total Fatalities in the Syrian Civil War (2017-2019)
+                    </div>
+                    <div id="plot2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"> </script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="static/js/app.js"></script>
+
+</body>
+
+</html>
