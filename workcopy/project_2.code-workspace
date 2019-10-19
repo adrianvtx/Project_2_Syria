@@ -3,5 +3,8 @@
 		{
 			"path": "D:\\GIT_AV_REPOS\\Project_2_Syria"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
 }

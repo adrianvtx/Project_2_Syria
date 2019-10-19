@@ -1,0 +1,6 @@
+	data_id	iso	event_id_cnty	event_id_no_cnty	event_date	year	time_precision	event_type	sub_event_type	actor1	...	location	latitude	longitude	geo_precision	source	source_scale	notes	fatalities	timestamp	iso3
+count	66475	66475	66475	66475	66475	66475	66475	66475	66475	66475	...	66475	66475	66475	66475	66475	66475	66475	66475	66475	66475
+unique	66475	1	66475	66475	1015	3	3	6	25	303	...	3074	3024	3029	3	839	12	63154	101	234	1
+top	6132396	760	SYR9999	9999	2017-09-25	2017	1	Explosions/Remote violence	Shelling/artillery/missile attack	Military Forces of Syria (2000-)	...	Ar-Raqqa	35.9428	39.0519	1	SOHR	Other	Regime forces shelled Al-Latamna in Hama. Neit...	0	1567462272	SYR
+freq	1	66475	1	1	177	31330	64983	44176	22541	27537	...	1257	1257	1257	48972	27080	27081	24	47200	852	66475
+4 rows × 31 columns
