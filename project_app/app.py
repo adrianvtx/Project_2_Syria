@@ -1,8 +1,7 @@
-# import os
+import os
 
 import pandas as pd
 import numpy as np
-import datetime as dt
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -18,12 +17,13 @@ app = Flask(__name__)
 # #################################################
 # # Database Setup
 # #################################################
-
-engine = create_engine("sqlite:///C:\\Users\\wcarn\\Desktop\\GitHub\\leaflet-challenge\\Project_2_Syria\\project_app\\db\\data.sqlite")
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/data.sqlite"
+db = SQLAlchemy(app)
+# engine = create_engine("sqlite:///C:\\Users\\wcarn\\Desktop\\GitHub\\leaflet-challenge\\Project_2_Syria\\project_app\\db\\data.sqlite")
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
-Base.prepare(engine, reflect=True)
+Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
 # data1 = Base.classes.data1
@@ -43,11 +43,11 @@ def main():
 @app.route("/names")
 def names():
     """Return a list of input names."""
-    session = Session(engine)
+
     # Use Pandas to perform the sql query
     stmt = session.query(data1).statement
-    df = pd.read_sql_query(stmt, session.bind)
-    session.close()
+    df = pd.read_sql_query(stmt, db.session.bind)
+
     # Return a list of the column names (input names)
     return jsonify(list(df.columns)[:17])
 
@@ -55,7 +55,6 @@ def names():
 @app.route("/S_Data")
 def S_Data():
 
-    session = Session(engine)
     sel = [
         data1.data_id,
         data1.event_date,
@@ -76,7 +75,7 @@ def S_Data():
         data1.fatalities,
     ]
 
-    results = session.query(*sel).all()
+    results = db.session.query(*sel).all()
 
     S_Data = {}
     for result in results:
@@ -97,15 +96,13 @@ def S_Data():
         S_Data["notes"] = result[14]
         S_Data["source"] = result[15]
         S_Data["fatalities"] = result[16]
-    print(S_Data)
-    session.close()
+
     return jsonify(S_Data)
 
 
 @app.route("/syria")
 def syria():
 
-    session = Session(engine)
 
     sel = [
         data1.data_id,
@@ -127,7 +124,7 @@ def syria():
         func.sum(data1.fatalities),
     ]
 
-    results1 = session.query(*sel).\
+    results1 = db.session.query(*sel).\
     group_by(data1.event_date).\
     order_by(data1.event_date).all()
 
@@ -135,9 +132,6 @@ def syria():
        'assoc_actor_1', 'actor2', 'assoc_actor_2', 'admin1', 'admin2',
        'admin3', 'location', 'latitude', 'longitude', 'notes', 'source',
        'fatalities'])
-
-    stmt = session.query(data1).statement
-    df = pd.read_sql_query(stmt, session.bind)
 
     data2 = df3
 
@@ -161,13 +155,11 @@ def syria():
         "source": data2.source.tolist(),
         "fatalities": data2.fatalities.tolist(),
     }
-    session.close()
+
     return jsonify(data)
 
 @app.route("/syria2")
 def syria2():
-
-    session = Session(engine)
 
     sel = [
         data1.admin1,
@@ -175,7 +167,7 @@ def syria2():
         func.sum(data1.fatalities),
     ]
 
-    results2 = session.query(*sel).\
+    results2 = db.session.query(*sel).\
     group_by(data1.sub_event_type).\
     group_by(data1.admin1).\
     order_by(data1.admin1).all()
@@ -308,7 +300,7 @@ def syria2():
         "Tartous_admin1": nTartous.admin1.tolist(),
         "Tartous_fatalities": nTartous.fatalities.tolist()
     }
-    session.close()
+
     return jsonify(data5)
 
 
