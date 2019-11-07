@@ -26,8 +26,8 @@ Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
-# data1 = Base.classes.data1
-data1 = Base.classes.data_drop
+data1 = Base.classes.data1
+data_drop = Base.classes.data_drop
 
 @app.route("/")
 def index():
@@ -45,7 +45,7 @@ def names():
     """Return a list of input names."""
 
     # Use Pandas to perform the sql query
-    stmt = db.session.query(data1).statement
+    stmt = db.session.query(data_drop).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
     # Return a list of the column names (input names)
@@ -56,23 +56,23 @@ def names():
 def S_Data():
 
     sel = [
-        data1.data_id,
-        data1.event_date,
-        data1.event_type,
-        data1.sub_event_type,
-        data1.actor1,
-        data1.assoc_actor_1,
-        data1.actor2,
-        data1.assoc_actor_2,
-        data1.admin1,
-        data1.admin2,
-        data1.admin3,
-        data1.location,
-        data1.latitude,
-        data1.longitude,
-        data1.notes,
-        data1.source,
-        data1.fatalities,
+        data_drop.data_id,
+        data_drop.event_date,
+        data_drop.event_type,
+        data_drop.sub_event_type,
+        data_drop.actor1,
+        data_drop.assoc_actor_1,
+        data_drop.actor2,
+        data_drop.assoc_actor_2,
+        data_drop.admin1,
+        data_drop.admin2,
+        data_drop.admin3,
+        data_drop.location,
+        data_drop.latitude,
+        data_drop.longitude,
+        data_drop.notes,
+        data_drop.source,
+        data_drop.fatalities,
     ]
 
     results = db.session.query(*sel).all()
@@ -105,28 +105,28 @@ def syria():
 
 
     sel = [
-        data1.data_id,
-        data1.event_date,
-        data1.event_type,
-        data1.sub_event_type,
-        data1.actor1,
-        data1.assoc_actor_1,
-        data1.actor2,
-        data1.assoc_actor_2,
-        data1.admin1,
-        data1.admin2,
-        data1.admin3,
-        data1.location,
-        data1.latitude,
-        data1.longitude,
-        data1.notes,
-        data1.source,
-        func.sum(data1.fatalities),
+        data_drop.data_id,
+        data_drop.event_date,
+        data_drop.event_type,
+        data_drop.sub_event_type,
+        data_drop.actor1,
+        data_drop.assoc_actor_1,
+        data_drop.actor2,
+        data_drop.assoc_actor_2,
+        data_drop.admin1,
+        data_drop.admin2,
+        data_drop.admin3,
+        data_drop.location,
+        data_drop.latitude,
+        data_drop.longitude,
+        data_drop.notes,
+        data_drop.source,
+        func.sum(data_drop.fatalities),
     ]
 
     results1 = db.session.query(*sel).\
-    group_by(data1.event_date).\
-    order_by(data1.event_date).all()
+    group_by(data_drop.event_date).\
+    order_by(data_drop.event_date).all()
 
     df3 = pd.DataFrame(results1, columns=['data_id', 'event_date', 'event_type', 'sub_event_type', 'actor1',
        'assoc_actor_1', 'actor2', 'assoc_actor_2', 'admin1', 'admin2',
@@ -162,15 +162,15 @@ def syria():
 def syria2():
 
     sel = [
-        data1.admin1,
-        data1.sub_event_type,
-        func.sum(data1.fatalities),
+        data_drop.admin1,
+        data_drop.sub_event_type,
+        func.sum(data_drop.fatalities),
     ]
 
     results2 = db.session.query(*sel).\
-    group_by(data1.sub_event_type).\
-    group_by(data1.admin1).\
-    order_by(data1.admin1).all()
+    group_by(data_drop.sub_event_type).\
+    group_by(data_drop.admin1).\
+    order_by(data_drop.admin1).all()
 
     df2 = pd.DataFrame(results2,
                        columns=['admin1', 'sub_event_type', 'fatalities'])
